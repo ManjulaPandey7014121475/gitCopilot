@@ -1,0 +1,56 @@
+// JCL (Job Control Language) Cheatsheet
+
+// JOB Statement: Defines the start of a job
+// Syntax: //JOBNAME JOB (accounting_info), 'description', CLASS=class, MSGCLASS=msgclass
+// Example:
+//MYJOB JOB (12345), 'MY FIRST JOB', CLASS=A, MSGCLASS=X
+
+// EXEC Statement: Executes a program or procedure
+// Syntax: //STEPNAME EXEC PGM=program_name
+// Example:
+//STEP1 EXEC PGM=IEFBR14
+
+// DD Statement: Defines data sets and I/O devices
+// Syntax: //DDNAME DD parameters
+// Example:
+//INPUT DD DSN=MY.DATA.SET, DISP=SHR
+
+// DISP Parameter: Specifies dataset disposition
+// DISP=(status,normal_termination,abnormal_termination)
+// Example:
+//DISP=(NEW,CATLG,DELETE)
+
+// SYSOUT: Directs output to a system output class
+// Syntax: //DDNAME DD SYSOUT=class
+// Example:
+//SYSOUT DD SYSOUT=*
+
+// INCLUDE Statement: Includes a member from a library
+// Syntax: //INCLUDE MEMBER=member_name
+// Example:
+//INCLUDE MEMBER=MYLIB
+
+// IF/THEN/ELSE/ENDIF: Conditional execution
+// Syntax:
+// // IF (condition) THEN
+// // STEPNAME EXEC PGM=program_name
+// // ELSE
+// // STEPNAME EXEC PGM=other_program
+// // ENDIF
+
+// Comment: Add comments in JCL
+// Syntax: //* Comment text
+// Example:
+//* This is a comment
+
+// Common Utilities:
+// IEFBR14: Dummy program, does nothing
+// IEBCOPY: Copies or compresses datasets
+// IEHLIST: Lists dataset information
+// IDCAMS: Access method services for VSAM
+
+// Example JCL Job:
+////MYJOB JOB (12345), 'EXAMPLE JOB', CLASS=A, MSGCLASS=X
+////STEP1 EXEC PGM=IEFBR14
+////DD1 DD DSN=MY.DATA.SET, DISP=(NEW,CATLG,DELETE),
+////    SPACE=(CYL,(1,1)), UNIT=SYSDA
