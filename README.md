@@ -1,3 +1,3 @@
 # gitCopilot
 #checking for clone
-#checking for pull request
+#cheking for push request
